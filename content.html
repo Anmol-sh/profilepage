@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmol Sharma | Details</title>
+    <style>
+        /* Base Styles with Modern Color Scheme */
+        :root {
+            --primary-color: #1a1a2e;
+            --secondary-color: #0f3460;
+            --accent-color: #e94560;
+            --accent-color-2: #16213e;
+            --light-color: #f8f9fa;
+            --dark-color: #16213e;
+            --text-color: #f8f9fa;
+            --text-dark: #121212;
+            --transition: all 0.3s ease;
+            --gradient: linear-gradient(135deg, #16213e, #0f3460, #e94560);
+            --overlay-color: rgba(26, 26, 46, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--primary-color);
+            overflow-x: hidden;
+        }
+
+        /* Modern Layout Structure */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            padding: 20px 0;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 50px 0;
+        }
+
+        .section-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            gap: 10px;
+        }
+
+        .section-tab {
+            padding: 12px 25px;
+            background: var(--accent-color-2);
+            border: none;
+            border-radius: 30px;
+            color: var(--light-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .section-tab:hover,
+        .section-tab.active {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.3);
+        }
+
+        .section-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 15px;
+            background: var(--secondary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .company {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--light-color);
+        }
+
+        .period {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--light-color);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        .responsibilities ul {
+            list-style-type: none;
+        }
+
+        .responsibilities li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities li:before {
+            content: "▹";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects Section - Modern Card Design */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-item {
+            background: var(--secondary-color);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: var(--light-color);
+            margin-bottom: 5px;
+        }
+
+        .project-date {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .project-skills {
+            margin-top: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding-top: 10px;
+        }
+
+        .project-skill {
+            background: rgba(233, 69, 96, 0.2);
+            color: var(--accent-color);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        /* Skills Section - Interactive */
+        .skills-section {
+            background: var(--secondary-color);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .skills-categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .skill-category {
+            padding: 10px 20px;
+            background: rgba(233, 69, 96, 0.2);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover,
+        .skill-category.active {
+            background: var(--accent-color);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        /* Education Section */
+        .education-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .education-item {
+            background: var(--secondary-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .degree {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .school {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        /* Achievements Section */
+        .achievements-list {
+            list-style-type: none;
+        }
+
+        .achievements-list li {
+            position: relative;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: var(--secondary-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .achievements-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .achievement-title {
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-color);
+            transform-origin: right;
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        section:hover h2::after {
+            transform-origin: left;
+            transform: scaleX(1);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Back button */
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: var(--accent-color);
+            color: var(--light-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #d13652;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            background: var(--primary-color);
+            position: relative;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-tabs {
+                flex-wrap: wrap;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Anmol Sharma</a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="/content.html" class="active">Details</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="section-tabs">
+            <button class="section-tab active" data-section="experience">Experience</button>
+            <button class="section-tab" data-section="projects">Projects</button>
+            <button class="section-tab" data-section="skills">Skills</button>
+            <button class="section-tab" data-section="education">Education</button>
+            <button class="section-tab" data-section="achievements">Achievements</button>
+        </div>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section-content active fade-in">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-image" style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <img src="experience.png" alt="Cloud Infrastructure Diagram"
+                    style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">ADOBE</div>
+                    <div class="period">July 2020 - March 2022</div>
+                </div>
+                <div class="role">Member of Technical Staff II</div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Designed and implemented an end-to-end solution for Public Cloud Governance, monitoring
+                            Azure cloud resources of ~40K accounts within Adobe.</li>
+                        <li>Redesigned Baremetal procurement service while leading a team of 2 to automate all
+                            operations and approvals related to requesting new bare metals and access to existing ones.
+                        </li>
+                        <li>Designed and developed TLM (Token Lifecycle Management) while leading a team of 3, reducing
+                            procurement time of the digital vault from ~3 weeks to 1 day.</li>
+                        <li>Enhanced TLM monitoring capabilities to scan and monitor public cloud credentials like Azure
+                            application credentials, validating ~200K application integrations to Azure.</li>
+                        <li>Modernized PLM (PKI Lifecycle Management) system to enable configurable operations and
+                            controls for system administrators.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <div class="company">ADOBE</div>
+                    <div class="period">July 2018 - July 2020</div>
+                </div>
+                <div class="role">Member of Technical Staff</div>
+                <div class="responsibilities">
+                    <ul>
+                        <li>Designed and implemented various features and upgrades for IT-Cloud (On-premise cloud
+                            services) such as Feedback service for receiving & scheduling tasks and tracking feedbacks.
+                        </li>
+                        <li>Developed Performance and Health monitoring Dashboard to aid service admins to identify and
+                            prioritize among low performing services.</li>
+                        <li>Enhanced and simplified new code release and feature testing process for production releases
+                            by creating a new development environment and improving deployment procedure in IT-Cloud.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-content fade-in">
+            <h2>Projects</h2>
+
+            <div class="projects-image" style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <img src="personalProjects.png" alt="AI/ML Projects"
+                    style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+            </div>
+
+            <div class="projects-container">
+                <div class="project-item">
+                    <div class="project-content">
+                        <div class="project-title">Threat Detection Model</div>
+                        <div class="project-date">January 2025 - February 2025</div>
+                        <p>Created an automated threat detection system using pre-trained AI models for improved
+                            surveillance. Used LLaVa model to convert videos to textual description and BART to classify
+                            situations as threatening or not based on a score.</p>
+                        <div class="project-skills">
+                            <span class="project-skill">LLaVa model</span>
+                            <span class="project-skill">BART model</span>
+                            <span class="project-skill">Gemini</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-content">
+                        <div class="project-title">Bitewise</div>
+                        <div class="project-date">November 2024 - December 2024</div>
+                        <p>Designed a meal management system for getting current meals insights and tracking long-term
+                            nutrition data to help reach health goals.</p>
+                        <div class="project-skills">
+                            <span class="project-skill">Gemini</span>
+                            <span class="project-skill">React</span>
+                            <span class="project-skill">MongoDB</span>
+                            <span class="project-skill">Flask</span>
+                            <span class="project-skill">Distributed System</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-content">
+                        <div class="project-title">Apparel Recommendation System</div>
+                        <div class="project-date">January 2018 - July 2018</div>
+                        <p>Developed an image search engine using CNN transfer learning for e-commerce, training VGG-16
+                            on 10,000 Amazon apparel images. Achieved 96% accuracy in matching 5,000 inventory items
+                            based on color distribution.</p>
+                        <div class="project-skills">
+                            <span class="project-skill">Python</span>
+                            <span class="project-skill">Keras</span>
+                            <span class="project-skill">Matplotlib</span>
+                            <span class="project-skill">OpenCV</span>
+                            <span class="project-skill">Transfer Learning</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-content fade-in">
+            <h2>Skills</h2>
+
+            <div class="skills-section">
+                <div class="skills-categories">
+                    <div class="skill-category active" data-category="all">All</div>
+                    <div class="skill-category" data-category="languages">Languages</div>
+                    <div class="skill-category" data-category="frameworks">Frameworks</div>
+                    <div class="skill-category" data-category="cloud">Cloud & DevOps</div>
+                    <div class="skill-category" data-category="databases">Databases</div>
+                </div>
+
+                <div class="skills-list" id="all">
+                    <span class="skill-tag" data-category="languages">Java</span>
+                    <span class="skill-tag" data-category="languages">JavaScript</span>
+                    <span class="skill-tag" data-category="languages">Python</span>
+                    <span class="skill-tag" data-category="frameworks">React</span>
+                    <span class="skill-tag" data-category="frameworks">Node.js</span>
+                    <span class="skill-tag" data-category="frameworks">Flask</span>
+                    <span class="skill-tag" data-category="frameworks">Django</span>
+                    <span class="skill-tag" data-category="cloud">Hashicorp Vault</span>
+                    <span class="skill-tag" data-category="databases">MongoDB</span>
+                    <span class="skill-tag" data-category="databases">MySQL</span>
+                    <span class="skill-tag" data-category="cloud">Grafana</span>
+                    <span class="skill-tag" data-category="cloud">Splunk</span>
+                    <span class="skill-tag" data-category="cloud">Kubernetes</span>
+                    <span class="skill-tag" data-category="cloud">Docker</span>
+                    <span class="skill-tag" data-category="cloud">Azure</span>
+                    <span class="skill-tag" data-category="cloud">AWS</span>
+                    <span class="skill-tag" data-category="cloud">Jenkins</span>
+                    <span class="skill-tag" data-category="cloud">Openstack</span>
+                    <span class="skill-tag" data-category="cloud">VMWare vRO</span>
+                    <span class="skill-tag" data-category="cloud">Distributed Systems</span>
+                    <span class="skill-tag" data-category="languages">AI/ML</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section-content fade-in">
+            <h2>Education</h2>
+
+            <div class="education-container">
+                <div class="education-item">
+                    <div class="degree">Masters of Science in Information Systems</div>
+                    <div class="school">University of Washington, Seattle</div>
+                    <div class="period">2024 - 2025</div>
+                    <div>GPA: 3.7</div>
+                </div>
+
+                <div class="education-item">
+                    <div class="degree">Bachelor in Engineering, Computer Science</div>
+                    <div class="school">PESIT Bangalore South Campus (VTU)</div>
+                    <div class="period">2014 - 2018</div>
+                    <div>GPA: 3.43</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section-content fade-in">
+            <h2>Achievements</h2>
+
+            <ul class="achievements-list">
+                <li>
+                    <div class="achievement-title">Spotlight Award 2018</div>
+                    <p>Adobe IT department: Successful release of platform performance dashboard and feedback platform.
+                    </p>
+                </li>
+                <li>
+                    <div class="achievement-title">High Five Award 2019</div>
+                    <p>Adobe IT Department: For successful delivery of TLM Project.</p>
+                </li>
+                <li>
+                    <div class="achievement-title">Hackathon Projects</div>
+                    <p>Participated in Adobe hackathons (2019 & 2020) with the IT Cloud team.</p>
+                </li>
+                <li>
+                    <div class="achievement-title">New College Graduates Convocation</div>
+                    <p>Contributed to organizing and performing as Emcee for the ceremony in Adobe-2018.</p>
+                </li>
+                <li>
+                    <div class="achievement-title">Scholarships</div>
+                    <p>PM Scholarship (India) and NAL Merit Scholarship (2012 & 2014): For achieving >95% percentile
+                        score in High School.</p>
+                </li>
+            </ul>
+
+            <div class="achievements-video" style="display: flex; justify-content: center; margin-bottom: 30px;">
+                <video controls
+                    style="max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);">
+                    <source src="achievements.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <a href="index.html" class="back-button">Back to Home</a>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Anmol Sharma | Software Development Engineer | Located in Seattle, WA</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
